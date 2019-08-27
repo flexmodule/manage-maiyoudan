@@ -119,7 +119,7 @@
       justify-content: space-around;
       -webkit-justify-content: space-around;
       align-items: center;
-          -webkit-align-items: center;
+      -webkit-align-items: center;
       .inputmain-l {
         width: 200px;
       }
@@ -127,12 +127,12 @@
         width: 64px;
         height: 64px;
         margin-right: 100px;
-        transition: all .4s;
-        animation:theanimation 4s infinite alternate; 
-      -webkit-animation:theanimation 4s infinite alternate ; 
-      -moz-animation:theanimation 4s infinite alternate ; 
-      -o-animation:theanimation 4s infinite alternate ; 
-      -ms-animation:theanimation 4s infinite alternate ; 
+        transition: all 0.4s;
+        animation: theanimation 4s infinite alternate;
+        -webkit-animation: theanimation 4s infinite alternate;
+        -moz-animation: theanimation 4s infinite alternate;
+        -o-animation: theanimation 4s infinite alternate;
+        -ms-animation: theanimation 4s infinite alternate;
         img {
           width: 100%;
           height: 100%;
@@ -159,35 +159,33 @@
         justify-content: space-around;
         -webkit-justify-content: space-around;
         margin-bottom: 20px;
-        
       }
       .inputmain-r {
-
       }
     }
     .time {
       padding: 20px;
       .bounce-enter-active {
-  animation: bounce-in .5s;
-}
-.bounce-leave-active {
-  animation: bounce-in .5s reverse;
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
+        animation: bounce-in 0.5s;
+      }
+      .bounce-leave-active {
+        animation: bounce-in 0.5s reverse;
+      }
+      @keyframes bounce-in {
+        0% {
+          transform: scale(0);
+        }
+        50% {
+          transform: scale(1.5);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
     }
     .el-input {
       width: 200px !important;
-      font-size: 14px!important;
+      font-size: 14px !important;
     }
     .el-progress-circle {
       width: 180px !important;
@@ -198,8 +196,178 @@
       font: 20px/30px "";
       height: 30px;
     }
+    .el-carousel__item .img {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .el-carousel__item:nth-child(2n) {
+      background-color: #99a9bf;
+    }
+    .el-carousel__item:nth-child(2n + 1) {
+      background-color: #d3dce6;
+    }
   }
   @media (max-width: 750px) {
+    .card {
+      width: 100%;
+      position: relative;
+      .arrow {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 0.44rem;
+        height: 0.44rem;
+        img {
+          widows: 100%;
+          height: 100%;
+        }
+      }
+      .header {
+        display: flex;
+        background: #eee;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.2rem;
+        .header-l {
+          font: 0.4rem/.4rem "";
+        }
+      }
+      .main {
+        display: flex;
+        justify-content: space-around;
+        .main-l,
+        .main-r {
+          .title {
+            text-align: center;
+          }
+          .process {
+            width: 2.52rem;
+            height: 2.52rem;
+            margin: 0 auto;
+          }
+        }
+      }
+      .body {
+        padding: 0 0.2rem;
+        .body-l,
+        .body-r {
+          .title {
+            text-align: center;
+            font: 0.36rem/.36rem "";
+          }
+          .context,
+          .preferences {
+            padding: 0.4rem;
+            margin: 0.2rem 0;
+            height: 3rem;
+            overflow-y: scroll;
+            box-sizing: border-box;
+            border-radius: 10px;
+            box-shadow: 0 0 2px #999;
+            position: relative;
+          }
+          .context-l,
+          .preferences-l {
+            width: 0.64rem;
+            height: 0.64rem;
+            position: absolute;
+            top: 0.02rem;
+            left: 0.02rem;
+            img {
+              width: 100%;
+              height: 100%；;
+            }
+          }
+          .context-r,
+          .preferences-r {
+            .data {
+              display: inline-block;
+              font: 0.3rem/.3rem "";
+              margin: 0 0.1rem 0.1rem 0;
+            }
+          }
+        }
+      }
+      .inputmain {
+        .inputmain-l {
+          .inputmain-lbox {
+            width: 0.6rem;
+            height: 0.6rem;
+            margin: 0.3rem auto;
+            transition: all 0.4s;
+            animation: theanimation 4s infinite alternate;
+            -webkit-animation: theanimation 4s infinite alternate;
+            -moz-animation: theanimation 4s infinite alternate;
+            -o-animation: theanimation 4s infinite alternate;
+            -ms-animation: theanimation 4s infinite alternate;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+          @keyframes theanimation {
+            0% {
+              transform: translateX(0);
+            }
+            50% {
+              transform: translateX(50px);
+            }
+            100% {
+              transform: translateX(100px);
+            }
+          }
+        }
+        .inputmain-r,
+        .inputmain-c {
+          padding: 0.3rem;
+        }
+        .inputmain-r {
+          text-align: center;
+          span {
+            padding: 0.2rem;
+          }
+        }
+      }
+      .time {
+        padding: 0.3rem;
+        .timebox {
+          font: 0.4rem/.4rem "";
+        }
+        .bounce-enter-active {
+          animation: bounce-in 0.5s;
+        }
+        .bounce-leave-active {
+          animation: bounce-in 0.5s reverse;
+        }
+        @keyframes bounce-in {
+          0% {
+            transform: scale(0);
+          }
+          50% {
+            transform: scale(1.5);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+    .el-button {
+      width: 2.4rem;
+      font: 0.3rem/.5rem "";
+      height: 0.5rem;
+    }
+    .el-input {
+      font-size: 0.4rem !important;
+      margin-bottom: 0.3rem;
+    }
+    
   }
 }
 </style>
@@ -210,21 +378,33 @@
         <div class="header-l">Smart Climate Control</div>
         <div class="header-r">
           <div class="header-rr">
-            <el-switch v-model="value1" active-text="开" inactive-text="关"></el-switch>
+            <el-switch v-model="value1" active-text="on" inactive-text="off"></el-switch>
           </div>
         </div>
       </div>
-      <div class="main" :style="{marginTop:clientheight/12+'px'}">
+      <div class="main" :style="{marginTop:clientheight/20+'px'}">
         <div class="main-l">
           <div class="title">Driver</div>
           <div class="process">
-            <el-progress type="circle" :percentage="25" :color="colors" :strokeWidth="9" :format="format1"></el-progress>
+            <el-progress
+              type="circle"
+              :percentage="25"
+              :color="colors"
+              :strokeWidth="9"
+              :format="format1"
+            ></el-progress>
           </div>
         </div>
         <div class="main-r">
           <div class="title">Passenger</div>
           <div class="process">
-            <el-progress type="circle" :percentage="75" :color="colors" :strokeWidth="9" :format="format2"></el-progress>
+            <el-progress
+              type="circle"
+              :percentage="75"
+              :color="colors"
+              :strokeWidth="9"
+              :format="format2"
+            ></el-progress>
           </div>
         </div>
       </div>
@@ -233,7 +413,7 @@
           <div class="title">Context</div>
           <div class="context">
             <div class="context-l">
-              <img src="@/assets/img/water.png" alt>
+              <img src="@/assets/img/water.png" alt />
             </div>
             <div class="context-r">
               <div class="data" v-for="item,index in context">{{item.key}}:{{item.value}}</div>
@@ -244,7 +424,7 @@
           <div class="title">Preferences</div>
           <div class="preferences">
             <div class="preferences-l">
-              <img src="@/assets/img/temperature.png" alt>
+              <img src="@/assets/img/temperature.png" alt />
             </div>
             <div class="preferences-r">
               <div class="data" v-for="item,index in preferences">{{item.key}}:{{item.value}}</div>
@@ -253,7 +433,7 @@
         </div>
       </div>
       <div class="arrow">
-        <img src="@/assets/img/doublearrow.png" alt>
+        <img src="@/assets/img/doublearrow.png" alt />
       </div>
     </div>
     <div class="card" :style="{height:clientheight+'px'}">
@@ -261,14 +441,14 @@
         <div class="header-l">Smart Schedule</div>
         <div class="header-r">
           <div class="header-rr">
-            <el-switch v-model="value2" active-text="开" inactive-text="关"></el-switch>
+            <el-switch v-model="value2" active-text="on" inactive-text="off"></el-switch>
           </div>
         </div>
       </div>
       <div class="inputmain">
         <div class="inputmain-l">
           <div class="inputmain-lbox">
-          <img src="@/assets/img/position.png" alt>
+            <img src="@/assets/img/position.png" alt />
           </div>
         </div>
         <div class="inputmain-c">
@@ -281,21 +461,34 @@
             <el-input placeholder="请输入内容" prefix-icon="el-icon-date" v-model="meetingTime"></el-input>
           </div>
         </div>
-        <div class="inputmain-r"><el-button type="primary">set meeting</el-button></div>
+        <div class="inputmain-r">
+          <el-button type="primary" @click="submitinfo">set meeting</el-button>
+        </div>
       </div>
-      <div class="time"><transition name="bounce"><div class="timebox" v-if='isshow'>Time to leave………</div></transition></div>
+      <div class="time">
+        <transition name="bounce">
+          <div class="timebox" v-if="isshow">Time to leave………</div>
+        </transition>
+      </div>
       <div class="arrow">
-        <img src="@/assets/img/doublearrow.png" alt>
+        <img src="@/assets/img/doublearrow.png" alt />
       </div>
     </div>
     <div class="card" :style="{height:clientheight+'px'}">
       <div class="header">
-        <div class="header-l">Designed by: </div>
+        <div class="header-l">Designed by:</div>
         <div class="header-r">
-          <div class="header-rr">
-           
-          </div>
+          <div class="header-rr">{{designer}}</div>
         </div>
+      </div>
+      <div class="swiper">
+        <el-carousel :interval="4000" type="card" height="200px">
+          <el-carousel-item v-for="item in 6" :key="item">
+            <div class="img">
+              <img src="item" alt />
+            </div>
+          </el-carousel-item>
+        </el-carousel>
       </div>
     </div>
   </div>
@@ -308,7 +501,9 @@ export default {
   name: "home",
   data() {
     return {
-      isshow:true,
+      imglist: [],
+      designer: "**",
+      isshow: false,
       colors: [
         { color: "#f56c6c", percentage: 20 },
         { color: "#e6a23c", percentage: 40 },
@@ -345,12 +540,15 @@ export default {
   },
   components: {},
   methods: {
+    submitinfo() {
+      this.isshow = true;
+    },
     format1() {
-        return this.driver;
-      },
-      format2() {
-        return this.passenger;
-      },
+      return this.driver;
+    },
+    format2() {
+      return this.passenger;
+    },
     isMobile() {
       if (!window.navigator || !window.navigator.userAgent) {
         return false;

@@ -20,7 +20,7 @@
 		}
 	</style>
 	<script>
-		(function resize() {
+		function resize() {
 			var docEl = document.documentElement;
 			var clientWidth = document.documentElement.clientWidth;
 			if (!clientWidth) return;
@@ -29,7 +29,9 @@
 			} else {
 				docEl.style.fontSize = '100px';
 			}
-		})();
+		};
+		resize();
+		window.onresize=resize	
 	</script>
 </head>
 
