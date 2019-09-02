@@ -1,6 +1,6 @@
 {
-  "name": "appointment",
-  "short_name": "appointment",
+  "name": "manage-maiyoudan",
+  "short_name": "manage-maiyoudan",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",

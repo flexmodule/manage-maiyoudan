@@ -1,18 +1,14 @@
 <template>
-  <div id="app">
-    <router-view/>
-  </div>
+  <router-view/>
 </template>
 
+<script>
+export default {
+  name: 'App'
+}
+</script>
+
 <style lang="scss">
-@media (max-width: 750px) {
-	.el-carousel__container {
-      height: 4rem !important;
-    }
-}
-@media (min-width: 750px) { 
-	.el-carousel__container {
-      height: 300px !important;
-    }
-}
+@import "./scss/base/_reset.scss";
+@import "./scss/base/_common.scss";
 </style>
