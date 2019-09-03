@@ -2,150 +2,77 @@
   <div class="app-container container">
     <head-menu/>
     <div class="StandardData-container">
-    <div class="left-menu">
-      <el-menu default-active="#" router class="el-menu-vertical-list" background-color="#e1edff" text-color="#414243" active-text-color="#000">
-        <el-submenu index="">
-          <template slot="title">
-            <span>系统管理员</span>
-          </template>
-         <el-menu-item index="">
-            <span slot="title">列表</span>
+      <div class="left-menu">
+        <el-menu
+          router
+          :default-active="$route.path"
+          class="el-menu-vertical-list"
+          background-color="#e1edff"
+          text-color="#414243"
+          active-text-color="#000"
+        >
+          <el-menu-item index="/home">
+            <i class="el-icon-menu"></i>
+            <span slot="title">首页</span>
           </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">添加</span>
-          </el-menu-item>
-        </el-submenu>
-        <el-submenu index="">
+          <el-submenu index="1">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>导航一</span>
+            </template>
+            <el-menu-item-group>
+              <template slot="title">分组一</template>
+              <el-menu-item index="/order">选项1</el-menu-item>
+              <el-menu-item index="/login">选项2</el-menu-item>
+            </el-menu-item-group>
+            <el-menu-item-group title="分组2">
+              <el-menu-item index="1-3">选项3</el-menu-item>
+            </el-menu-item-group>
+            <el-submenu index="1-4">
+              <template slot="title">选项4</template>
+              <el-menu-item index="1-4-1">选项1</el-menu-item>
+            </el-submenu>
+          </el-submenu>
+          <el-submenu index="/order">
+            <template slot="title">
+              <i class="el-icon-location"></i>
+              <span>订单管理</span>
+            </template>
+            <el-menu-item index="/order">选项1</el-menu-item>
+            <el-menu-item index="/login">选项2</el-menu-item>
+          </el-submenu>
+          <el-submenu index="90">
           <template slot="title">
             <span>用户管理</span>
           </template>
-          <el-menu-item index="">
+          <el-menu-item index="order">
             <span slot="title">1</span>
           </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">2</span>
-          </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">3</span>
-          </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">4</span>
-          </el-menu-item>
         </el-submenu>
-        <el-submenu index="">
-          <template slot="title">
-            <span>股票管理</span>
-          </template>
-          <el-menu-item index="">
-            <span slot="title">股票管理1</span>
+          <el-menu-item index="/goods">
+            <i class="el-icon-menu"></i>
+            <span slot="title">商品管理</span>
           </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">股票管理2</span>
-          </el-menu-item>
-        </el-submenu>
-        <el-submenu index="">
-          <template slot="title">
-            <span>成文类型(市价/限价)</span>
-          </template>
-          <el-menu-item index="">
-            <span slot="title">1</span>
-          </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">2</span>
-          </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">3</span>
-          </el-menu-item>
-        </el-submenu>
-        <el-submenu index="">
-          <template slot="title">
-            <span>期权类型(看涨/看跌)</span>
-          </template>
-          <el-menu-item index="">
-            <span slot="title">1</span>
-          </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">2</span>
-          </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">3</span>
-          </el-menu-item>
-        </el-submenu>
-        <el-submenu index="">
-          <template slot="title">
-            <span>股票类型</span>
-          </template>
-          <el-menu-item index="">
-            <span slot="title">1</span>
-          </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">2</span>
-          </el-menu-item>
-        </el-submenu>
-        <el-submenu index="">
-          <template slot="title">
-            <span>行权周期</span>
-          </template>
-          <el-menu-item index="">
-            <span slot="title">1</span>
-          </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">2</span>
-          </el-menu-item>
-        </el-submenu>
-        <el-submenu index="">
-          <template slot="title">
-            <span>费率管理</span>
-          </template>
-          <el-menu-item index="">
-            <span slot="title">1</span>
-          </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">2</span>
-          </el-menu-item>
-        </el-submenu>
-        <el-submenu index="">
-          <template slot="title">
-            <span>订单管理</span>
-          </template>
-          <el-menu-item index="">
-            <span slot="title">历史订单</span>
-          </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">未行权订单</span>
-          </el-menu-item>
-        </el-submenu>
-        <el-submenu index="">
-          <template slot="title">
-            <span>出入金管理</span>
-          </template>
-          <el-menu-item index="">
-            <span slot="title">出入金申请列表</span>
-          </el-menu-item>
-          <el-menu-item index="">
-            <span slot="title">出入金历史</span>
-          </el-menu-item>
-        </el-submenu>
-      </el-menu>
+        </el-menu>
+      </div>
+      <div class="main-container">
+        <div class="main-content">
+          <!-- <back-button></back-button> -->
+          <transition name="fade" mode="out-in">
+            <keep-alive>
+              <router-view></router-view>
+            </keep-alive>
+          </transition>
+        </div>
+      </div>
     </div>
-		<div class="main-container">
-			<div class="main-content">
-				<!-- <back-button></back-button> -->
-				<transition name="fade" mode="out-in">
-					<keep-alive>
-						<router-view></router-view>
-					</keep-alive>
-				</transition>
-			</div>
-		</div>
-  </div>
   </div>
 </template>
 <style lang="scss">
 .main-container {
   width: 100%;
   color: #000;
-	padding-top: 60px;
+  padding-top: 60px;
   background-color: #f0f0f0;
 }
 .left-menu {
@@ -160,7 +87,6 @@
   max-height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
-  padding-bottom: 25px;
 }
 .main-content {
   padding-left: 221px;

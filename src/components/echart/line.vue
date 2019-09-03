@@ -1,6 +1,5 @@
 <template>
-  <div class="lineEchart" :style="{height:height,width:width}">
-  </div>
+  <div class="lineEchart" :style="{height:height,width:width}"></div>
 </template>
 <script>
 import echarts from "echarts";
@@ -15,15 +14,15 @@ export default {
         this.setOptions(val);
       }
     }
-	},
-	props: {
+  },
+  props: {
     width: {
       type: String,
-      default: '100%'
+      default: "100%"
     },
     height: {
       type: String,
-      default: '350px'
+      default: "350px"
     },
     chartData: {
       type: Object,
@@ -59,17 +58,31 @@ export default {
           },
           padding: [5, 10]
         },
-        yAxis: {
-          axisTick: {
-            show: false
+        yAxis: [
+          {
+            type: "value",
+            name: "订单数量(笔)",
+            axisLine: {
+              lineStyle: {
+                color: "#FF005A"
+              }
+            },
+            min: 0
+          },
+          {
+            type: "value",
+            name: "交易金额(元)",
+            min: 0
           }
-        },
+        ],
         legend: {
-          data: ["expected", "actual"]
+          data: ["订单数量", "交易金额"]
         },
         series: [
           {
-            name: "expected",
+            name: "订单数量",
+            yAxisIndex: "0",
+            showAllSymbol: true, //动画效果
             itemStyle: {
               normal: {
                 color: "#FF005A",
@@ -86,7 +99,9 @@ export default {
             animationEasing: "cubicInOut"
           },
           {
-            name: "actual",
+            name: "交易金额",
+            yAxisIndex: "1",
+            showAllSymbol: true, //动画效果
             smooth: true,
             type: "line",
             itemStyle: {
@@ -121,7 +136,7 @@ export default {
     this.chart = null;
   },
   mounted() {
-		console.log(this.$el)
+    console.log(this.$el);
     this.initChart();
   }
 };

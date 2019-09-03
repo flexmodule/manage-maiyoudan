@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="logo">
-      <router-link to="/">欢迎登录人人期权后台管理系统</router-link>
+      <router-link to="/">欢迎登录麦优单后台管理系统</router-link>
     </div>
     <div class="user-info-wrap">
       <div class="user-info">

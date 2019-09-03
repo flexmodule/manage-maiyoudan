@@ -16,7 +16,7 @@ import LineChart from '@/components/echart/line';
 const lineChartData = {
   newVisitis: {
     expectedData: [100, 120, 161, 134, 105, 160, 165],
-    actualData: [120, 82, 91, 154, 162, 140, 145]
+    actualData: [1200, 823, 931, 334, 1462, 1440, 1545]
   },
   messages: {
     expectedData: [200, 192, 120, 144, 160, 130, 140],
