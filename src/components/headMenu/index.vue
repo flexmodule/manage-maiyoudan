@@ -7,17 +7,15 @@
       <div class="user-info">
         <span class="user-name">{{userName}}</span>
         <span class="edit-pwd">修改密码</span>
-        <!-- <span class="user-msg">消息</span> -->
         <span class="login-out" @click="signOut">退出</span>
       </div>
-
     </div>
   </header>
 </template>
 <style lang="scss">
 header {
   width: 100%;
-  height: 40px;
+  height: 60px;
   padding: 0 30px;
   background-color: #326ce5;
   position: fixed;
@@ -49,6 +47,9 @@ header {
         cursor: pointer;
         padding: 0 10px;
         border-left: 1px solid #fff;
+				&:nth-child(1) {
+					border: 0;
+				}
       }
     }
     .select {
@@ -71,7 +72,7 @@ export default {
   data() {
     return {
       value: "/home",
-      userName: ""
+      userName: "123"
     };
   },
   methods: {

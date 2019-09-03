@@ -58,6 +58,10 @@ export default {
       input_pwd: '',
       load_data: false
     }
+	},
+	mounted () {
+		
+      
   }
 }
 </script>

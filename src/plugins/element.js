@@ -3,7 +3,9 @@ import {
   Dropdown,
   DropdownMenu,
   DropdownItem,
-  Menu,
+	Menu,
+	Row,
+  Col,
   Submenu,
   MenuItem,
   MenuItemGroup,
@@ -22,6 +24,8 @@ Vue.use(Dropdown);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);
 Vue.use(Menu);
+Vue.use(Row);
+Vue.use(Col);
 Vue.use(Submenu);
 Vue.use(MenuItem);
 Vue.use(MenuItemGroup);
