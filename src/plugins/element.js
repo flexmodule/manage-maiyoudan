@@ -5,21 +5,39 @@ import {
   DropdownItem,
 	Menu,
 	Row,
-  Col,
+	Col,
+	Table,
+  TableColumn,
+	Input,
   Submenu,
-  MenuItem,
-  MenuItemGroup,
+	MenuItem,
+	DatePicker,
+  TimePicker,
+	MenuItemGroup,
+	Checkbox,
+	Button,
   Breadcrumb,
   BreadcrumbItem,
   Form,
   FormItem,
-  Loading,
+	Loading,
+	Select,
+	Option,
+	Pagination,
   MessageBox,
   Message,
   Notification
 } from 'element-ui';
-
-
+Vue.use(Pagination);
+Vue.use(Button);
+Vue.use(Table);
+Vue.use(Checkbox);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(TableColumn);
+Vue.use(Input);
+Vue.use(DatePicker);
+Vue.use(TimePicker);
 Vue.use(Dropdown);
 Vue.use(DropdownMenu);
 Vue.use(DropdownItem);

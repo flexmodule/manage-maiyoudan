@@ -1,6 +1,6 @@
 <template>
-  <div class="goods">
-goods
+  <div class="activity">
+activity
   </div>
 </template>
 <script>

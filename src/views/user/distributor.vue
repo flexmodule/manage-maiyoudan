@@ -1,6 +1,6 @@
 <template>
-  <div class="goods">
-goods
+  <div class="userlist">
+		分销列表
   </div>
 </template>
 <script>

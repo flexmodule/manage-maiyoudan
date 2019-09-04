@@ -1,18 +1,17 @@
 <template>
     <div class="home">
+			<panel-group :base-data="userdata"/>
 			<el-row style="background:#fff;padding:16px 16px 0;margin-bottom:32px;">
 				<line-chart :chart-data="lineChartData"/>
 			</el-row>
-			
 		</div>
 </template>
-<style lang="scss" scoped>
 
-</style>
 
 <script>
 import api from '@/api/api';
 import LineChart from '@/components/echart/line';
+import PanelGroup from '@/components/echart/PanelGroup';
 const lineChartData = {
   newVisitis: {
     expectedData: [100, 120, 161, 134, 105, 160, 165],
@@ -31,13 +30,23 @@ const lineChartData = {
     actualData: [120, 82, 91, 154, 162, 140, 130]
   }
 }
+const userData={
+	user:234,
+	merchant:344,
+	distributor:23,
+	ordernum:23,
+	tradeMoney:233,
+	profit:123
+}
 export default {
 	name: "Home",
 	components: {
-    LineChart
+		LineChart,
+		PanelGroup
   },
   data() {
     return {
+			userdata:userData,
 			lineChartData: lineChartData.newVisitis
     };
   },
@@ -52,3 +61,6 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+
+</style>

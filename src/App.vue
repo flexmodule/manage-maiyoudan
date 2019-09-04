@@ -11,4 +11,5 @@ export default {
 <style lang="scss">
 @import "./scss/base/_reset.scss";
 @import "./scss/base/_common.scss";
+@import "./scss/element/element-ui.scss";
 </style>

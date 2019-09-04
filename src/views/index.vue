@@ -9,49 +9,41 @@
           class="el-menu-vertical-list"
           background-color="#e1edff"
           text-color="#414243"
-          active-text-color="#000"
+          active-text-color="#3888fa"
         >
           <el-menu-item index="/home">
             <i class="el-icon-menu"></i>
             <span slot="title">首页</span>
           </el-menu-item>
-          <el-submenu index="1">
-            <template slot="title">
-              <i class="el-icon-location"></i>
-              <span>导航一</span>
-            </template>
-            <el-menu-item-group>
-              <template slot="title">分组一</template>
-              <el-menu-item index="/order">选项1</el-menu-item>
-              <el-menu-item index="/login">选项2</el-menu-item>
-            </el-menu-item-group>
-            <el-menu-item-group title="分组2">
-              <el-menu-item index="1-3">选项3</el-menu-item>
-            </el-menu-item-group>
-            <el-submenu index="1-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="1-4-1">选项1</el-menu-item>
-            </el-submenu>
-          </el-submenu>
           <el-submenu index="/order">
             <template slot="title">
-              <i class="el-icon-location"></i>
+              <i class="el-icon-s-order"></i>
               <span>订单管理</span>
             </template>
-            <el-menu-item index="/order">选项1</el-menu-item>
-            <el-menu-item index="/login">选项2</el-menu-item>
+            <el-menu-item index="/order">麦优单订单</el-menu-item>
           </el-submenu>
-          <el-submenu index="90">
+          <el-submenu index="/userlist">
           <template slot="title">
-            <span>用户管理</span>
+						<i class="el-icon-s-custom"></i>
+            <span>角色管理</span>
           </template>
-          <el-menu-item index="order">
-            <span slot="title">1</span>
+          <el-menu-item index="/userlist">
+            <span slot="title">用户管理</span>
+          </el-menu-item>
+					<el-menu-item index="/merchant">
+            <span slot="title">商户管理</span>
+          </el-menu-item>
+					<el-menu-item index="/distributor">
+            <span slot="title">分销人员管理</span>
           </el-menu-item>
         </el-submenu>
           <el-menu-item index="/goods">
-            <i class="el-icon-menu"></i>
+            <i class="el-icon-goods"></i>
             <span slot="title">商品管理</span>
+          </el-menu-item>
+					<el-menu-item index="/activity">
+            <i class="el-icon-present"></i>
+            <span slot="title">活动管理</span>
           </el-menu-item>
         </el-menu>
       </div>
@@ -89,8 +81,7 @@
   overflow-y: auto;
 }
 .main-content {
-  padding-left: 221px;
-  padding-top: 20px;
+  padding-left: 210px;
   padding-right: 20px;
   padding-bottom: 20px;
 }

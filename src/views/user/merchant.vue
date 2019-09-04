@@ -1,28 +1,19 @@
 <template>
-  <div class="order-container">
+  <div class="merchant">
     <div class="filter-container">
-      <el-input placeholder="订单号" v-model="listQuery.title" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter"/>
-			<el-input placeholder="购买人" v-model="listQuery.title" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter"/>
-      <el-select v-model="listQuery.importance" placeholder="所属商户" clearable style="width: 90px" class="filter-item">
+      <el-input placeholder="商户号" v-model="listQuery.title" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter"/>
+      <el-select v-model="listQuery.importance" placeholder="商户名称" clearable style="width: 90px" class="filter-item">
         <el-option v-for="item in importanceOptions" :key="item" label="item" :value="item"/>
       </el-select>
-      <el-select v-model="listQuery.type" placeholder="订单状态" clearable class="filter-item" style="width: 130px">
+      <el-select v-model="listQuery.type" placeholder="商户状态" clearable class="filter-item" style="width: 130px">
         <el-option v-for="item in calendarTypeOptions" :key="item.key" label="item.display_name+'('+item.key+')'" :value="item.key"/>
       </el-select>
-      <el-select v-model="listQuery.sort" placeholder="商品名称" style="width: 140px" class="filter-item" @change="handleFilter">
+      <el-select v-model="listQuery.sort" placeholder="商品类型" style="width: 140px" class="filter-item" @change="handleFilter">
         <el-option v-for="item in sortOptions" :key="item.key" label="item.label" :value="item.key"/>
       </el-select>
-			<el-date-picker
-      v-model="value2"
-      type="datetimerange"
-      align="right"
-      unlink-panels
-			@change="changepicker"
-      range-separator="至"
-      start-placeholder="开始日期"
-      end-placeholder="结束日期"
-      :picker-options="pickerOptions">
-    </el-date-picker>
+			 <el-select v-model="listQuery.sort" placeholder="所在地区" style="width: 140px" class="filter-item" @change="handleFilter">
+        <el-option v-for="item in sortOptions" :key="item.key" label="item.label" :value="item.key"/>
+      </el-select>
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
       <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">导出excel</el-button>
       <el-checkbox v-model="showReviewer" class="filter-item" style="margin-left:15px;" @change="tableKey=tableKey+1">显示</el-checkbox>
@@ -37,68 +28,63 @@
       highlight-current-row
       style="width: 100%;"
       @sort-change="sortChange">
-      <el-table-column label="订单id" prop="id" sortable="custom" align="center" width="125">
+      <el-table-column label="商户id" prop="id" sortable="custom" align="center" width="125">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="订单号" prop="id" align="center" width="125">
+			<el-table-column label="商户号" prop="id" align="center" width="125">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="订单日期" width="150px" align="center">
+      <el-table-column label="商户名称" width="150px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="订单状态" class-name="status-col" width="100">
+			<el-table-column label="商户类型" class-name="status-col" width="100">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-			<el-table-column label="订单金额" class-name="status-col" width="100">
+			<el-table-column label="商户状态" class-name="status-col" width="100">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-			<el-table-column label="优惠金额" class-name="status-col" width="100">
+			<el-table-column label="联系电话" class-name="status-col" width="100">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-			<el-table-column label="数量" class-name="status-col" width="50">
+			<el-table-column label="营业时间" class-name="status-col" width="50">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="商品名称" min-width="130px" align="center">
+      <el-table-column label="所属地区" min-width="130px" align="center">
         <template slot-scope="scope">
           <span class="link-type" @click="handleUpdate(scope.row)">{{ scope.row.title }}</span>
           <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="所属商户" min-width="130px" align="center">
+      <el-table-column label="旗下商品" min-width="130px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.author }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column v-if="showReviewer" label="购买用户" width="110px" align="center">
-        <template slot-scope="scope">
-          <span style="color:red;">{{ scope.row.reviewer }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="推荐者" align="center" width="95">
-        <template slot-scope="scope">
-          <span v-if="scope.row.pageviews" class="link-type" @click="handleFetchPv(scope.row.pageviews)">{{ scope.row.pageviews }}</span>
-          <span v-else>0</span>
         </template>
       </el-table-column>
       
       <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">更新状态</el-button>
-          <el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">查看详情
+          <el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">详情
+          </el-button>
+					<el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">修改
+          </el-button>
+					<el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">下架
+          </el-button>
+					<el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">上架
           </el-button>
         </template>
       </el-table-column>
@@ -188,35 +174,6 @@ export default {
   },
   data() {
     return {
-			pickerOptions: {
-          shortcuts: [{
-            text: '最近一周',
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
-							picker.$emit('pick', [start, end]);
-							console.log(this.value2)
-            }
-          }, {
-            text: '最近一个月',
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
-              picker.$emit('pick', [start, end]);
-            }
-          }, {
-            text: '最近三个月',
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-              picker.$emit('pick', [start, end]);
-            }
-          }]
-        },
-        value2: '',
       tableKey: 0,
       list: null,
       total: 0,
@@ -227,7 +184,7 @@ export default {
         importance: undefined,
         title: undefined,
         type: undefined,
-        sort: '+id'
+        sort: ''
       },
       importanceOptions: [1, 2, 3],
       calendarTypeOptions,
@@ -416,7 +373,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.order-container {
+.merchant {
 	background:#fff;
 	padding:20px;
 	border-radius:10px;

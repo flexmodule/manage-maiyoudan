@@ -27,6 +27,22 @@ export default new Router({
 			{
         path: 'goods',
         component: () => import(/* webpackChunkName: "goods" */ './views/goods/index.vue'),
+      },
+			{
+        path: 'userlist',
+        component: () => import(/* webpackChunkName: "userlist" */ './views/user/userlist.vue'),
+      },
+			{
+        path: 'merchant',
+        component: () => import(/* webpackChunkName: "merchant" */ './views/user/merchant.vue'),
+      },
+			{
+        path: 'distributor',
+        component: () => import(/* webpackChunkName: "distributor" */ './views/user/distributor.vue'),
+      },
+			{
+        path: 'activity',
+        component: () => import(/* webpackChunkName: "activity" */ './views/activity/index.vue'),
       }
 		]
 		},
