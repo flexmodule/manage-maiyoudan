@@ -37,7 +37,7 @@
       highlight-current-row
       style="width: 100%;"
       @sort-change="sortChange">
-      <el-table-column label="订单id" prop="id" sortable="custom" align="center" width="125">
+      <el-table-column label="订单id" prop="id" sortable="custom" align="center" width="88">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
@@ -52,17 +52,17 @@
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="订单状态" class-name="status-col" width="100">
+			<el-table-column label="订单状态" class-name="status-col" width="80">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-			<el-table-column label="订单金额" class-name="status-col" width="100">
+			<el-table-column label="订单金额" class-name="status-col" width="80">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-			<el-table-column label="优惠金额" class-name="status-col" width="100">
+			<el-table-column label="优惠金额" class-name="status-col" width="80">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
@@ -95,7 +95,7 @@
         </template>
       </el-table-column>
       
-      <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" width="100" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">更新状态</el-button>
           <el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">查看详情

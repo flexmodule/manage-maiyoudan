@@ -352,10 +352,7 @@ pre,
 samp {
     font-family: Consolas, Menlo, Courier, monospace
 }
-//main-container全局样式
-.app-container {
-  padding: 20px;
-}
+
 
 .components-container {
   margin: 30px 50px;
@@ -410,13 +407,13 @@ samp {
   .filter-item {
     display: inline-block;
 		vertical-align: middle;
-		margin: 0 10px 0 0;
+		margin: 0 10px 10px 0!important;
   }
 }
 .el-range-editor {
 	display: inline-block;
 	vertical-align: middle;
-		
+    margin: 0 10px 10px 0;
 }
 .el-date-editor--daterange.el-input__inner {
 	width:400px!important;

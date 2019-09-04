@@ -82,8 +82,8 @@
 }
 .main-content {
   padding-left: 210px;
-  padding-right: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-right:10px;
 }
 </style>
 

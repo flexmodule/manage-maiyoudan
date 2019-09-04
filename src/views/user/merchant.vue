@@ -15,6 +15,9 @@
         <el-option v-for="item in sortOptions" :key="item.key" label="item.label" :value="item.key"/>
       </el-select>
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
+      <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="handleCreate">
+        新增
+      </el-button>
       <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">导出excel</el-button>
       <el-checkbox v-model="showReviewer" class="filter-item" style="margin-left:15px;" @change="tableKey=tableKey+1">显示</el-checkbox>
     </div>
@@ -28,7 +31,7 @@
       highlight-current-row
       style="width: 100%;"
       @sort-change="sortChange">
-      <el-table-column label="商户id" prop="id" sortable="custom" align="center" width="125">
+      <el-table-column label="商户id" prop="id" sortable="custom" align="center" width="88">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
@@ -43,12 +46,12 @@
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="商户类型" class-name="status-col" width="100">
+			<el-table-column label="商户类型" class-name="status-col" width="80">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-			<el-table-column label="商户状态" class-name="status-col" width="100">
+			<el-table-column label="商户状态" class-name="status-col" width="80">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
@@ -58,12 +61,12 @@
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-			<el-table-column label="营业时间" class-name="status-col" width="50">
+			<el-table-column label="营业时间" class-name="status-col" width="100">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="所属地区" min-width="130px" align="center">
+      <el-table-column label="所属地区" min-width="100px" align="center">
         <template slot-scope="scope">
           <span class="link-type" @click="handleUpdate(scope.row)">{{ scope.row.title }}</span>
           <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
@@ -75,7 +78,7 @@
         </template>
       </el-table-column>
       
-      <el-table-column label="操作" align="center" width="230" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" width="200" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">更新状态</el-button>
           <el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">详情
