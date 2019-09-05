@@ -41,10 +41,21 @@
             <i class="el-icon-goods"></i>
             <span slot="title">商品管理</span>
           </el-menu-item>
-					<el-menu-item index="/activity">
-            <i class="el-icon-present"></i>
-            <span slot="title">活动管理</span>
+					<el-submenu index="/activity">
+          <template slot="title">
+						<i class="el-icon-present"></i>
+            <span>活动管理</span>
+          </template>
+          <el-menu-item index="/bannerlist">
+            <span slot="title">banner广告位</span>
           </el-menu-item>
+					<el-menu-item index="/activitymenu">
+            <span slot="title">活动菜单</span>
+          </el-menu-item>
+					<el-menu-item index="/postlist">
+            <span slot="title">分销海报</span>
+          </el-menu-item>
+        </el-submenu>
         </el-menu>
       </div>
       <div class="main-container">

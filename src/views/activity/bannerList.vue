@@ -1,19 +1,18 @@
 <template>
-  <div class="userlist">
+  <div class="merchant">
     <div class="filter-container">
-      <el-input placeholder="用户id" v-model="listQuery.title" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter"/>
-			<el-input placeholder="城市(省)" v-model="listQuery.title" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter"/>
-			<el-input placeholder="城市(市)" v-model="listQuery.title" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter"/>
-			<el-input placeholder="昵称" v-model="listQuery.title" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter"/>
-			 <el-select v-model="listQuery.sort" placeholder="性别" style="width: 140px" class="filter-item" @change="handleFilter">
-        <el-option v-for="item in sortOptions" :key="item.key" label="item.label" :value="item.key"/>
+      <el-input placeholder="活动号" v-model="listQuery.title" style="width: 200px;" class="filter-item" @keyup.enter.native="handleFilter"/>
+      <el-select v-model="listQuery.type" placeholder="活动状态" clearable class="filter-item" style="width: 130px">
+        <el-option v-for="item in calendarTypeOptions" :key="item.key" label="item.display_name+'('+item.key+')'" :value="item.key"/>
       </el-select>
       <el-button v-waves class="filter-item" type="primary" icon="el-icon-search" @click="handleFilter">搜索</el-button>
-      <el-button v-waves :loading="downloadLoading" class="filter-item" type="primary" icon="el-icon-download" @click="handleDownload">导出excel</el-button>
-      <el-checkbox v-model="showReviewer" class="filter-item" style="margin-left:15px;" @change="tableKey=tableKey+1">显示</el-checkbox>
+      <el-button class="filter-item" style="margin-left: 10px;" type="primary" icon="el-icon-edit" @click="handleCreate">
+        新增
+      </el-button>
     </div>
 
     <el-table
+
       :key="tableKey"
       :data="list"
       border
@@ -21,47 +20,32 @@
       highlight-current-row
       style="width: 100%;"
       @sort-change="sortChange">
-      <el-table-column label="用户id" prop="id" sortable="custom" align="center" width="150">
+      <el-table-column label="活动id" prop="id" sortable="custom" align="center" width="128">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="城市(省)" prop="id" align="center" width="125">
+			<el-table-column label="活动链接" prop="id" align="center" min-width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="城市(市)" width="150px" align="center">
+			<el-table-column label="活动状态" width="100px" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="性别" class-name="status-col" width="80">
+      <el-table-column label="操作" align="center" width="280" class-name="small-padding fixed-width">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
-        </template>
-      </el-table-column>
-			<el-table-column label="昵称" class-name="status-col" min-width="60px">
-        <template slot-scope="scope">
-          <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
-        </template>
-      </el-table-column>
-			<el-table-column label="购买订单数" class-name="status-col" width="100">
-        <template slot-scope="scope">
-          <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
-        </template>
-      </el-table-column>
-      <el-table-column label="授权时间" min-width="60px" align="center">
-        <template slot-scope="scope">
-          <span class="link-type" @click="handleUpdate(scope.row)">{{ scope.row.title }}</span>
-          <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
-        </template>
-      </el-table-column>
-      
-      <el-table-column label="操作" align="center" width="200" class-name="small-padding fixed-width">
-        <template slot-scope="scope">
-          <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">删除</el-button>
           <el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">详情
+          </el-button>
+					<el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">修改
+          </el-button>
+					<el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">下架
+          </el-button>
+					<el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">上架
+          </el-button>
+					<el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">删除
           </el-button>
         </template>
       </el-table-column>
@@ -350,7 +334,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.userlist {
+.merchant {
 	background:#fff;
 	padding:20px;
 	border-radius:10px;

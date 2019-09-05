@@ -41,8 +41,16 @@ export default new Router({
         component: () => import(/* webpackChunkName: "distributor" */ './views/user/distributor.vue'),
       },
 			{
-        path: 'activity',
-        component: () => import(/* webpackChunkName: "activity" */ './views/activity/index.vue'),
+        path: 'postlist',
+        component: () => import(/* webpackChunkName: "postList" */ './views/activity/postList.vue'),
+      },
+			{
+        path: 'activitymenu',
+        component: () => import(/* webpackChunkName: "activityMenu" */ './views/activity/activityMenu.vue'),
+      },
+			{
+        path: 'bannerlist',
+        component: () => import(/* webpackChunkName: "bannerList" */ './views/activity/bannerList.vue'),
       }
 		]
 		},
