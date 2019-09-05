@@ -28,52 +28,52 @@
       highlight-current-row
       style="width: 100%;"
       @sort-change="sortChange">
-      <el-table-column label="商品id" prop="id" sortable="custom" align="center" width="128">
+      <el-table-column label="商品id" prop="id" sortable="custom" align="center" width="88">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="商品名称" prop="id" align="center" min-width="100">
+			<el-table-column label="商品名称" prop="id" align="center" min-width="150">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="商品类型" width="150px" align="center">
+      <el-table-column label="商品类型" width="60" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="库存" width="100px" align="center">
+			<el-table-column label="库存" width="60" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="已售数量" width="100px" align="center">
+			<el-table-column label="已售数量" width="60" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="卖价" width="100px" align="center">
+			<el-table-column label="卖价" width="60" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="优惠价" width="100px" align="center">
+			<el-table-column label="优惠价" width="60" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="成本价" width="100px" align="center">
+			<el-table-column label="成本价" width="60" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="好评率" width="100px" align="center">
+			<el-table-column label="好评率" width="60" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="商品状态" class-name="status-col" width="150">
+			<el-table-column label="商品状态" class-name="status-col" width="60">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
@@ -84,7 +84,7 @@
         </template>
       </el-table-column>
       
-      <el-table-column label="操作" align="center" width="280" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" width="200" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">更新状态</el-button>
           <el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">详情

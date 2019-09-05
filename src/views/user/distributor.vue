@@ -27,56 +27,56 @@
       highlight-current-row
       style="width: 100%;"
       @sort-change="sortChange">
-      <el-table-column label="分销者id" prop="id" sortable="custom" align="center" width="150">
+      <el-table-column label="分销者id" prop="id" sortable="custom" align="center" width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="城市(省)" prop="id" align="center" width="125">
+			<el-table-column label="城市(省)" prop="id" align="center" width="80">
         <template slot-scope="scope">
           <span>{{ scope.row.id }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="城市(市)" width="150px" align="center">
+      <el-table-column label="城市(市)" width="80" align="center">
         <template slot-scope="scope">
           <span>{{ scope.row.timestamp | parseTime('{y}-{m}-{d} {h}:{i}') }}</span>
         </template>
       </el-table-column>
-			<el-table-column label="性别" class-name="status-col" width="80">
+			<el-table-column label="性别" class-name="status-col" width="60">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-			<el-table-column label="昵称" class-name="status-col" min-width="60px">
+			<el-table-column label="昵称" class-name="status-col" min-width="60">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-			<el-table-column label="分销订单数" class-name="status-col" width="100">
+			<el-table-column label="分销订单数" class-name="status-col" width="60">
         <template slot-scope="scope">
           <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column label="分销总共收入" min-width="60px" align="center">
+      <el-table-column label="分销总共收入" width="60" align="center">
         <template slot-scope="scope">
           <span class="link-type" @click="handleUpdate(scope.row)">{{ scope.row.title }}</span>
           <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
         </template>
       </el-table-column>
-			<el-table-column label="分销可提现金额" min-width="50px" align="center">
+			<el-table-column label="分销可提现金额" width="60" align="center">
         <template slot-scope="scope">
           <span class="link-type" @click="handleUpdate(scope.row)">{{ scope.row.title }}</span>
           <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
         </template>
       </el-table-column>
-			<el-table-column label="分销已提现金额" min-width="50px" align="center">
+			<el-table-column label="分销已提现金额" width="60" align="center">
         <template slot-scope="scope">
           <span class="link-type" @click="handleUpdate(scope.row)">{{ scope.row.title }}</span>
           <el-tag>{{ scope.row.type | typeFilter }}</el-tag>
         </template>
       </el-table-column>
       
-      <el-table-column label="操作" align="center" width="220" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" min-width="180" class-name="small-padding fixed-width">
         <template slot-scope="scope">
           <el-button type="primary" size="mini" @click="handleUpdate(scope.row)">权限限制</el-button>
           <el-button v-if="scope.row.status!='published'" size="mini" type="success" @click="handleModifyStatus(scope.row,'published')">提现
