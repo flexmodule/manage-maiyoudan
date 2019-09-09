@@ -59,7 +59,7 @@ service.interceptors.response.use((response) => {
 	//         duration: 2 * 1000
 	//     })
 	// }
-	return Promise.reject(error)
+	return Promise.reject(error);
 })
 let $http = async (url, way, data) => {
 	if (way == 'get') {
@@ -76,7 +76,7 @@ let $http = async (url, way, data) => {
 	}
 	if (way == 'post') {
 		try {
-			let res = await service.post('url', data)
+			let res = await service.post(url, data)
 			return res;
 		} catch (e) {
 			Message({

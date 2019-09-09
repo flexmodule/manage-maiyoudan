@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import {
-  Dropdown,
+	Dropdown,
+	Dialog,
   DropdownMenu,
   DropdownItem,
 	Menu,
@@ -28,6 +29,7 @@ import {
   Message,
   Notification
 } from 'element-ui';
+Vue.use(Dialog);
 Vue.use(Pagination);
 Vue.use(Button);
 Vue.use(Table);
