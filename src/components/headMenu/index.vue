@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <div class="header">
     <div class="logo">
       <router-link to="/">欢迎登录麦优单后台管理系统</router-link>
     </div>
@@ -10,10 +10,10 @@
         <span class="login-out" @click="signOut">退出</span>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 <style lang="scss">
-header {
+.header {
   width: 100%;
   height: 60px;
   padding: 0 30px;

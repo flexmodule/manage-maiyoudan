@@ -4,16 +4,11 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import './plugins/element.js'
-import VueQuillEditor from 'vue-quill-editor'
-
-// require styles
-import 'quill/dist/quill.core.css'
-import 'quill/dist/quill.snow.css'
-import 'quill/dist/quill.bubble.css'
-
-Vue.use(VueQuillEditor, /* { default global options } */)
+import "@/scss/base/_reset.scss";
+import "@/scss/base/_common.scss";
+import "@/scss/element/element-ui.scss";
 Vue.config.productionTip = false
-
+Vue.prototype.$baseurl=process.env.VUE_APP_BASEURL
 new Vue({
   router,
   store,

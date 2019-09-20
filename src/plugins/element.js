@@ -7,6 +7,7 @@ import {
 	Menu,
 	Row,
 	Col,
+	Upload,
 	Table,
   TableColumn,
 	Input,
@@ -27,9 +28,12 @@ import {
 	Pagination,
   MessageBox,
   Message,
-  Notification
+	Notification,
+	Cascader
 } from 'element-ui';
 Vue.use(Dialog);
+Vue.use(Cascader);
+Vue.use(Upload);
 Vue.use(Pagination);
 Vue.use(Button);
 Vue.use(Table);
